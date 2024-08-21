@@ -18,6 +18,12 @@ function ExpenseForm() {
     (match) => match.id === 'routes/__app/expenses'
   ).data
   const expenseData = expenses.find((expense) => expense.id === params.id)
+
+  if (params.id && !expenseData) {
+    // throw new Response()
+    return <p>Invalid expense id.</p>
+  }
+
   const navigation = useNavigation()
 
   const defaultValues = expenseData
