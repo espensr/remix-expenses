@@ -35,7 +35,11 @@ function ExpenseForm() {
   const isSubmitting = navigation.state !== 'idle'
 
   return (
-    <Form method="post" className="form" id="expense-form">
+    <Form
+      method={expenseData ? 'patch' : 'post'}
+      className="form"
+      id="expense-form"
+    >
       <p>
         <label htmlFor="title">Expense Title</label>
         <input
