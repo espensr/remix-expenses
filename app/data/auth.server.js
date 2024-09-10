@@ -63,7 +63,7 @@ export async function signup({ email, password }) {
   const user = await prisma.user.create({
     data: { email: email, password: passwordHash },
   })
-  return createUserSession(user.id, '/')
+  return createUserSession(user.id, '/expenses')
 }
 
 export async function login({ email, password }) {
@@ -87,5 +87,5 @@ export async function login({ email, password }) {
     throw error
   }
 
-  return createUserSession(existingUser.id, '/')
+  return createUserSession(existingUser.id, '/expenses')
 }
