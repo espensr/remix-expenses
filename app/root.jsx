@@ -13,14 +13,14 @@ import sharedStyles from '~/styles/shared.css'
 import Error from './components/util/Error'
 
 export function meta() {
-  return { title: 'New Remix App' }
+  return { title: 'RemixExpenses' }
 }
 
 function Document({ title, children }) {
   return (
     <html lang="en">
       <head>
-        <title>{title}</title>
+        {title && <title>{title}</title>}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
