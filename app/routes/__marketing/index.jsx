@@ -46,4 +46,17 @@ export default function Index() {
   )
 }
 
-export function meta() {}
+export function meta() {
+  return {
+    title: 'RemixExpenses - The Complete App',
+    description: 'Manage your expenses with ease.',
+  }
+}
+
+export function headers({ actionHeaders, loaderHeaders, parentHeaders }) {
+  return {
+    'Cache-Control': parentHeaders.get('Cache-Control'), // 60 minutes
+  }
+}
+
+export const handle = { disableJS: true }
