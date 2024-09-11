@@ -53,8 +53,8 @@ export function meta() {
   }
 }
 
-export function headers() {
+export function headers({ actionHeaders, loaderHeaders, parentHeaders }) {
   return {
-    'Cache-Control': 'max-age=3600', // 60 minutes
+    'Cache-Control': parentHeaders.get('Cache-Control'), // 60 minutes
   }
 }
