@@ -53,6 +53,8 @@ export async function requireUserSession(request) {
   if (!userId) {
     throw redirect('/auth?mode=login')
   }
+
+  return userId
 }
 
 export async function signup({ email, password }) {
