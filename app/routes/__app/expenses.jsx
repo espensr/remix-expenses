@@ -1,4 +1,5 @@
 // /expenses => shared layout
+import { json } from '@remix-run/node'
 import { Link, Outlet, useLoaderData } from '@remix-run/react'
 import { FaPlus, FaDownload } from 'react-icons/fa'
 
@@ -43,7 +44,12 @@ export async function loader({ request }) {
   const userId = await requireUserSession(request)
 
   const expenses = await getExpenses(userId)
-  return expenses
+  // return expenses // json(expenses)
+  return json(expenses, {
+    headers: {
+      'Cache-Control': 'max-age=3',
+    },
+  })
 
   // if (!expenses || expenses.length === 0) {
   //   throw json(
@@ -56,3 +62,9 @@ export async function loader({ request }) {
 // export function CatchBoundary() {
 //   return <p>Error</p>
 // }
+
+export function headers({ actionHeaders, loaderHeaders, parentHeaders }) {
+  return {
+    'Cache-Control': loaderHeaders.get('Cache-Control'), // 60 minutes
+  }
+}
