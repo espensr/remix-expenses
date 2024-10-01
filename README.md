@@ -1,3 +1,12 @@
+Fullstack expenses app with database and authentication.
+Using Remix and mongoDB/prisma.
+
+Based on online course project, with ideas for extensions if time:
+- Migrate to Remix v2
+- Add TypeScript
+- Complete unfinished feautures
+- Clean up code
+
 # Welcome to Remix!
 
 - [Remix Docs](https://remix.run/docs)
